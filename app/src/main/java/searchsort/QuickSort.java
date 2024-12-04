@@ -39,16 +39,17 @@ public class QuickSort extends Sort {
         int pivot = arr[low];
         int i = low;
         int j = high + 1;
+
         while(true)
         {
-            while(arr[i++] < pivot)
+            while(++i <= high && arr[i] < pivot)
             {
                 if(i == high)
                 {
                     break; 
                 }
             }
-            while(arr[j--] > pivot)
+            while(--j >= low && arr[j] > pivot)
             {
                 if(j == low)
                 {
