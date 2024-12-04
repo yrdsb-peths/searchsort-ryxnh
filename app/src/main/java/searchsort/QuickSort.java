@@ -44,10 +44,18 @@ public class QuickSort extends Sort {
             {
                 break; 
             }
-
+            
+            swap(arr, i , j);
         }
-
+        
+        swap(arr, low, j);
         return j;
     }
 
+    public void swap(int[]arr, int i, int j)
+    {
+        int temp = arr[i]; 
+        arr[i] = arr[j]; 
+        arr[j] = temp;
+    }
 }
