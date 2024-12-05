@@ -69,11 +69,62 @@ public class Median {
      */
     public double findMerge(int[] arr)
     {
-
+        mergeSort(arr, 0 , arr.length - 1);
+        return calculateMedian(arr); 
 
     }
 
+    private void mergeSort(int[] arr, int low, int high)
+    {
+        if(low < high)
+        {
+            int mid = low + (high - low) / 2; 
+            mergeSort(arr, low, mid); 
+            mergeSort(arr, mid + 1, high);
+            merge(arr, low, mid, high);
 
+        }
+    }
+
+    private void merge(int[]arr, int low, int mid, int high)
+    {
+        int[]left = new int[mid - low + 1];
+        int[]right = new int[high - mid]; 
+
+        for(int i = 0; i < left.length; i++)
+        {
+            left[i] = arr[low + i];
+        }
+
+        for(int i = 0; i < right.length; i++)
+        {
+            right[i] = arr[mid + 1 + i];
+        }
+
+        int i = 0, j = 0, k = low; 
+        while(i < left.length && j < right.length)
+        {
+            if(left[i] <= right[j])
+            {
+                arr[k++] = left[i++];
+            }
+            else
+            {
+                arr[k++] = right[j++];
+            }
+            
+        }
+
+        while(i < left.length)
+        {
+            arr[k++] = left[i++];
+        }
+
+        while(j < right.length)
+        {
+            arr[k++] = right[j++];
+        }
+    }
 
     /**
      * Find the median of the array arr using InsertionSort algorithm.
