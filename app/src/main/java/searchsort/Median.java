@@ -126,11 +126,33 @@ public class Median {
         }
     }
 
+
     /**
      * Find the median of the array arr using InsertionSort algorithm.
      */
-    public double findInsertion(int[] arr) {
-        return 0;
+    public double findInsertion(int[] arr)
+    {
+        insertionSort(arr); 
+        return calculateMedian(arr);
     }
 
+    private void insertionSort(int[]arr)
+    {
+        for(int i = 1; i < arr.length; i++)
+        {
+            int key = arr[i];
+            int j = i - 1;
+            while(j >= 0 && arr[i] > key)
+            {
+                arr[j + 1] = arr[j];
+                j--;
+            }
+            
+            arr[j + 1] = key;
+        }
+
+    }
+
+
+    
 }
