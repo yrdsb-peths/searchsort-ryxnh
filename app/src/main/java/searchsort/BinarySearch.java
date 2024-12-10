@@ -24,10 +24,12 @@ public class BinarySearch extends Search {
         if (cur == target)
         {
             return mid; 
-        } else if (cur < target)
+        }
+        else if (cur < target)
         {
             return recursiveFind(arr, target, mid + 1, high);
-        } else
+        } 
+        else
         {
             return recursiveFind(arr, target, low, mid - 1); 
         }
